@@ -1,11 +1,12 @@
 package calculador.DAS.Programa;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		List<Rendas> listaRendas = new ArrayList<Rendas>();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Calculador DAS");
@@ -29,16 +30,26 @@ public class Main {
 				Rendas renda = new Rendas(mes, valor);
 				listaRendas.add(renda);
 				System.out.println("mes anterior: " + mes + " Valor anterior: " + valor);
+				System.out.println("********");
 				System.out.println("Continue");
+				System.out.println("********");
 
 			}
+
 			System.out.println("lista criada com sucesso, vamos checar: " + listaRendas);
-			input.close();
-
-			if (resposta == 2) {
-				System.out.println("Prossiga apara atualizar a renda atual");
-			}
+			System.out.println("criando arquivo para registro");
+			SalvaLista.salvarListaEmArquivo("rendas", listaRendas);
 
 		}
+
+		if (resposta == 2) {
+			System.out.println("Acessando arquivo da sessão");
+		}
+		
+		List<Rendas> registroRendas = LerLista.arquivoParaLista("rendas");
+		System.out.println(registroRendas);
+		
+		
+
 	}
 }

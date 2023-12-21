@@ -1,7 +1,14 @@
 package calculador.DAS.Programa;
 
-public class Rendas {
+import java.io.Serializable;
+import java.util.List;
+
+public class Rendas implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String mes;
 	private double valor;
 	
@@ -10,6 +17,10 @@ public class Rendas {
 		this.valor = valor;
 	}
 	
+	public Rendas(List<Rendas> lista) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getMes() {
 		return mes;
 	}
@@ -20,7 +31,7 @@ public class Rendas {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "mês: " + this.mes + " valor: " + this.valor;
+		return this.mes +","+this.valor;
 	}
 	
 }
