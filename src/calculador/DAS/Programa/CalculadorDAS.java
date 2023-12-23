@@ -11,11 +11,13 @@ public abstract class CalculadorDAS {
 		return lista.stream().mapToDouble(Double::doubleValue).sum();
 	}
 
-	public double calculadorDAS(double aliquotaEfetiva) {
+	 static double calculadorDAS(double aliquotaEfetiva) {
 		Scanner input = new Scanner(System.in);
 		List<Double> listaNfs = new ArrayList<Double>();
+		System.out.println("Quantas NFs você deseja somar?");
 		double totalNfs = input.nextDouble();
-		for (int i = 0; i < totalNfs; i++) {
+		System.out.println("serão somadas " + totalNfs+ " Nfs");
+		for (int i = 1; i < totalNfs; i++) {
 			System.out.print("Digite o valor da NF " + i + ": ");
 			double notasFiscais = input.nextDouble();
 			listaNfs.add(notasFiscais);

@@ -2,12 +2,14 @@ package calculador.DAS.Programa;
 
 public abstract class CalculadorSimplesNacional {
 
-	public double calculadorSN(double rendaBruta, double aliquota, double valorDescontos) {
+	public static double calculadorSN(double rendaBruta, double aliquota, double valorDescontos) {
 		double valorTotal = rendaBruta * aliquota;
 		double valorFinal = valorTotal - valorDescontos;
-	    System.out.println(valorFinal + " formatar dps");
+		String valorFinalS = Formatar.formatarEmReais(valorFinal);
+	    System.out.println("valor a ser dividido pela renda Bruta: " + valorFinalS);
 	    double aliquotaEfetiva = valorFinal / rendaBruta;
-	    System.out.println(aliquotaEfetiva);
+	    String aliquotaEfetivaS = Formatar.formataAliquota(aliquotaEfetiva);
+	    System.out.println("aliquota efetiva encontrada: " + aliquotaEfetivaS);
 	    return aliquotaEfetiva;
 		
 	}
